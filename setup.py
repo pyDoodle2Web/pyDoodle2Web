@@ -10,9 +10,13 @@ setuptools.setup(
     author_email="renerjake@gmail.com",
     description="",
     long_description=long_description,
-    long_description_content_type="text/markdown",
     url="https://github.com/pyDoodle2Web/pyDoodle2Web",
     packages=setuptools.find_packages(),
+    install_requires=[
+        'beautifulsoup4',
+        'pytesseract',
+    ],
+    keywords=['bootstrap', 'ocr', 'website', 'genertion'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

@@ -77,18 +77,3 @@ class HTMLGenerator:
             i = i + 1
 
         return (parent, i)
-
-
-if __name__ == '__main__':
-    from ocr import OCR
-    import argparse
-    import sys, getopt
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-p','--path', help='Path of the image', required=True)
-    args = parser.parse_args()
-
-    path = args.path
-    tags = OCR(path).readText()
-    html, _ = HTMLGenerator(tags).generateHTML()
-    with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'dump.html'), 'w') as f:
-        f.write(str(html.template.prettify()))

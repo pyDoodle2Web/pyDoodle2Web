@@ -80,7 +80,7 @@ class HTMLGenerator:
 
 
 if __name__ == '__main__':
-    from .ocr import OCR
+    from ocr import OCR
     import argparse
     import sys, getopt
     parser = argparse.ArgumentParser()

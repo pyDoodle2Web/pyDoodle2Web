@@ -1,13 +1,13 @@
-try:
-    from PIL import Image
-except ImportError:
-    import PIL.Image
 import PIL
 import pytesseract
 import os
 from difflib import get_close_matches
 
+
 class OCR:
+    '''
+    Uses pytesseract to return a list of tags in the doodle
+    '''
     def __init__(self, imagePath: str):
         self.imagePath = imagePath
         self.real_tags = ['container', 'row', 'coloumn', 'navbar', 'col', 'image', 'card', 'container-end', 'row-end', 'coloumn-end']
@@ -17,16 +17,17 @@ class OCR:
         if line not in ['', ' ']:
             return line
 
-
-    def builder(self, text: str):
+    def builder(self, text: str) -> list:
         main_list = []
         for line in filter(self.formater, text.splitlines()):
             for i in line.strip().split():
                 main_list.append(i)
         return main_list
 
-
-    def fixTags(self, tags):
+    def fixTags(self, tags: list) -> list:
+        '''
+        Corrects the output from pytesseract by checking closeness to the allowed tags
+        '''
         final_tags = []
         for tag in tags:
             close_match = get_close_matches(tag, self.real_tags, n = 1, cutoff = 0.6)
@@ -34,8 +35,7 @@ class OCR:
                 final_tags.append(close_match[0])
         return final_tags
 
-
-    def readText(self):
+    def readText(self) -> list:
         try:
             path = os.path.join(os.getcwd(), self.imagePath)
             text = pytesseract.image_to_string(path)
@@ -47,5 +47,3 @@ class OCR:
 
         except Exception as e:
             print(e)
-            
-

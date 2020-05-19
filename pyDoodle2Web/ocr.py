@@ -10,8 +10,7 @@ class OCR:
     '''
     def __init__(self, imagePath: str):
         self.imagePath = imagePath
-        self.real_tags = ['container', 'row', 'coloumn', 'navbar', 'col', 'image', 'card', 'container-end', 'row-end', 'coloumn-end']
-        self.allowed_tags = ['container', 'row', 'coloumn', 'navbar', 'image', 'card', 'column', 'cofoumm']
+        self.real_tags = ['container', 'carousel', 'text','row', 'coloumn', 'navbar', 'col', 'image', 'card', 'container-end', 'row-end', 'coloumn-end']
 
     def formater(self, line: str):
         if line not in ['', ' ']:
@@ -37,7 +36,7 @@ class OCR:
 
     def readText(self) -> list:
         try:
-            path = os.path.join(os.getcwd(), self.imagePath)
+            path = self.imagePath
             text = pytesseract.image_to_string(path)
             tags = self.builder(text)
             return self.fixTags(tags)

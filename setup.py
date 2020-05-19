@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pyDoodle2Web",
-    version="0.0.1",
+    version="0.0.7",
     author="pyDoodle2Web",
     author_email="renerjake@gmail.com",
     description="",

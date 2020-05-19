@@ -1,13 +1,13 @@
-from components.html.html import HTML
-from components.container.container import Container
-from components.navbar.navbar import Navbar
-from components.card.card import Card
-from components.row.row import Row
-from components.coloumn.coloumn import Coloumn
-from components.jumbotron.jumbotron import Jumbotron
-from components.carousel.carousel import Carousel
-from components.image.image import Image
-from components.text.text import Text
+from .components.html.html import HTML
+from .components.container.container import Container
+from .components.navbar.navbar import Navbar
+from .components.card.card import Card
+from .components.row.row import Row
+from .components.coloumn.coloumn import Coloumn
+from .components.jumbotron.jumbotron import Jumbotron
+from .components.carousel.carousel import Carousel
+from .components.image.image import Image
+from .components.text.text import Text
 import os
 from math import floor
 

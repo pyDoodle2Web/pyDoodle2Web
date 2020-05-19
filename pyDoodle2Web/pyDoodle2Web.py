@@ -1,8 +1,7 @@
-from ocr import OCR
-from htmlGenerator import HTMLGenerator
+from .ocr import OCR
+from .htmlGenerator import HTMLGenerator
 
-
-class pyDoodle2Web:
+class PyDoodle2Web:
     def __init__(self, path:str, darkMode:bool = True):
         self.path = path
         self.darkMode = True
@@ -11,3 +10,4 @@ class pyDoodle2Web:
         tags = OCR(self.path).readText()
         html, _ = HTMLGenerator(tagsList=tags, darkMode=self.darkMode).generateHTML()
         return html
+
